@@ -11,27 +11,7 @@
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-.title {
-  margin-left: auto;
-  margin-right: auto;
-  color: #591313;
-  padding: 5px 10px;
-  border-radius: 5px;
-  max-width: 200px;
-  text-align: center;
-  @media screen and (max-width: 767px) {
-    font-size: 16px;
-  }
-  @media screen and (min-width: 768px) and (max-width: 1199px) {
-    font-size: 20px;
-  }
-  @media screen and (min-width: 1200px) {
-    font-size: 24px;
-  }
-}
-
-.address,
-.balance {
+.label {
   margin-left: auto;
   margin-right: auto;
   text-align: center;

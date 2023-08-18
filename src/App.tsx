@@ -1,11 +1,12 @@
-import { UserPage } from './Pages/UserPage'
+
+import { Main } from "./Pages/Main"
 
 function App() {
 
   return (
-    <>
-      <UserPage/>
-    </>
+    <div>
+      <Main/>
+    </div>
   )
 }
 

@@ -1,91 +1,51 @@
-import { useEffect } from "react";
-import { Web3Provider } from "@ethersproject/providers";
+
 import styles from "./Form.module.scss";
 import { useForm } from "react-hook-form";
 import { DevTool } from "@hookform/devtools";
-import { useWallet } from "../../hooks/useWallet";
-import { ethers } from "ethers";
 import { ColorRing } from "react-loader-spinner";
-import { toast } from "react-toastify";
-import { useAppDispatch } from "../../redux/store";
-import { fetchWalletBalance } from "../../redux/wallet.slice";
-import { setBalanceLoading } from "../../redux/wallet.slice";
 
-const RECIPIENT_WALLET = "0xbC78292cE96C876156212069069Ef9563CdE3796";
 
-type IProps = {
-  isConnected: boolean;
-};
-
-export const Form = ({ isConnected }: IProps) => {
-  const dispatch = useAppDispatch();
-  const { selectedAddress, selectedBalance } = useWallet();
+export const Form = () => {
   const {
     register,
     handleSubmit,
     control,
-    formState: { isSubmitting, errors },
-    setValue,
+    formState: { isSubmitting, errors }
   } = useForm({
     defaultValues: {
-      wallet_address: RECIPIENT_WALLET,
-      amount: "",
+      email: "",
+      phoneNumber: "",
+      password: "",
+      confirmPassword: "",
     },
     mode:"onChange"
   });
 
-  type UserData = {
-    wallet_address: string;
-    amount: string;
+  type FormData = {
+    email: string;
+    phoneNumber: string;
+    password: string;
+    confirmPassword: string;
   };
 
-  useEffect(() => {
-    setValue("wallet_address", RECIPIENT_WALLET);
-    setValue("amount", "0.001");
-  }, [selectedAddress, selectedBalance, setValue]);
+  
 
-  const onSubmitHandler = async (data: UserData) => {
-    const recipient = data.wallet_address;
-    const amount = data.amount;
-    const parsedAmount = ethers.parseEther(amount);
-    if (parsedAmount > 0) {
-      try {
-        const provider = new Web3Provider(window.ethereum);
-        const signer = provider.getSigner();
-        const tx = await signer.sendTransaction({
-          to: recipient,
-          value: parsedAmount,
-        });
-        dispatch(setBalanceLoading(true));
-        const balanceAction = fetchWalletBalance(signer);
-        tx.wait()
-          .then(() => dispatch(balanceAction))
-          .then(() => dispatch(setBalanceLoading(false)))
-          .then(() => toast.success("Transaction successful!"));
-      } catch (err) {
-        console.error(err);
-      }
-    } else toast.warning("Enter correct amount");
+  const onSubmitHandler = async (data: FormData) => {
+    console.log(data);
   };
-
-  if (!isConnected) {
-    return <p className={styles.message}>Please, connect your wallet!</p>;
-  }
 
   return (
     <>
       <form onSubmit={handleSubmit(onSubmitHandler)} className={styles.form}>
-        <h2 className={styles.title}>TRANSFER FORM</h2>
-        <label className={styles.address} htmlFor="wallet_address">
+        <label className={styles.label} htmlFor="email">
           RECEIVER ADDRESS
           <input
-            id="wallet_address"
-            disabled={!isConnected}
+            id="email"
             className={styles.input}
-            {...register("wallet_address", {
+            {...register("email", {
               required: true,
               pattern: {
-                value: /^0x[a-fA-F0-9]{40}$/i,
+                value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
                 message: "Please enter a valid address wallet!",
               },
             })}
@@ -93,30 +53,53 @@ export const Form = ({ isConnected }: IProps) => {
             placeholder="wallet_address"
             defaultValue=""
           />
-          {errors.wallet_address && (
-            <p className={styles.errMessage}>{errors.wallet_address.message}</p>
+          {errors.email && (
+            <p className={styles.errMessage}>{errors.email.message}</p>
           )}
         </label>
 
-        <label className={styles.balance} htmlFor="amount">
+        <label className={styles.label} htmlFor="phone">
           AMOUNT TO SEND
           <input
-            id="amount"
-            disabled={!isConnected}
+            id="phone"
             className={styles.input}
-            {...register("amount", {
+            {...register("phoneNumber", {
               required: true,
-              pattern: {
-                value: /^\d+(\.\d{1,3})?$/,
-                message:
-                  "Please enter a valid balance with up to two decimal places!",
-              },
             })}
             type="text"
-            placeholder="balance"
           />
-          {errors.amount && (
-            <p className={styles.errMessage}>{errors.amount.message}</p>
+          {errors.phoneNumber && (
+            <p className={styles.errMessage}>{errors.phoneNumber.message}</p>
+          )}
+        </label>
+
+        <label className={styles.label} htmlFor="password">
+          AMOUNT TO SEND
+          <input
+            id="password"
+            className={styles.input}
+            {...register("password", {
+              required: true,
+            })}
+            type="text"
+          />
+          {errors.password && (
+            <p className={styles.errMessage}>{errors.password.message}</p>
+          )}
+        </label>
+
+        <label className={styles.label} htmlFor="confirmPassword">
+          AMOUNT TO SEND
+          <input
+            id="confirmPassword"
+            className={styles.input}
+            {...register("confirmPassword", {
+              required: true,
+            })}
+            type="text"
+          />
+          {errors.password && (
+            <p className={styles.errMessage}>{errors.password.message}</p>
           )}
         </label>
 
@@ -132,7 +115,7 @@ export const Form = ({ isConnected }: IProps) => {
               colors={["#e15b64", "#f47e60", "#f8b26a", "#abbd81", "#849b87"]}
             />
           ) : (
-            "Transfer"
+            "Send it"
           )}
         </button>
       </form>

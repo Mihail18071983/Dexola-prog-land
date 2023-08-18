@@ -1,64 +1,34 @@
 .header {
-  background-color: rgb(40, 48, 48);
+  padding: 15px 0;
 }
-
-.container {
+.nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 10px;
-
-  @media screen and (max-width: 767px) {
-    max-width: 600px;
-  }
-
-  @media screen and (min-width: 768px) and (max-width: 1199px) {
-    max-width: 1000px;
-  }
-
-  @media screen and (min-width: 1200px) {
-    max-width: 1200px;
-  }
 }
 
-.logo {
-  font-size: 20px;
-  padding: 5px 10px;
-  background-color: bisque;
-  color: #000;
-  border-radius: 5px;
-}
-
-.btn {
-  color: #fff;
+.link {
+  cursor: pointer;
+  padding: 12px 66px;
   display: flex;
-  gap: 5px;
   align-items: center;
-}
+  gap: 6.5px;
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.71;
+  letter-spacing: 0.28px;
+  transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 
-.wallet_icon {
-  color: purple;
-}
-
-.address,
-.balance {
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-}
-
-.wrapper {
-  padding: 5px 10px;
-  @media screen and (min-width: 768px) {
-    display: flex;
-    gap: 50px;
+  &::before {
+    content: "";
+    display: block;
+    background-image: url("../../assets/svg/arrow.svg");
+    width: 16px;
+    height: 16px;
+  }
+  &:hover {
+    background-color: var(--dark-grey);
   }
 }
 
-.address_value, .balance_value {
-padding: 7px;
-background-color:rgb(65, 84, 84);
-border-radius: 5px;
-}

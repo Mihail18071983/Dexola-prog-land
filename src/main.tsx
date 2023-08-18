@@ -1,8 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import "modern-normalize/modern-normalize.css";
 import "./index.scss";
+import '@fontsource/kanit/400.css';
+import '@fontsource/kanit/500.css';
+import '@fontsource/roboto-mono/400.css';
 import "react-toastify/dist/ReactToastify.css";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Provider } from "react-redux";
