@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { animated, useTransition, easings } from "@react-spring/web";
 import styles from "./Hero.module.scss";
 import containerStyles from "../../Container.module.scss";
@@ -32,19 +32,22 @@ export const Hero = () => {
 
   const transitions = useTransition(activeIndex, {
     key: activeIndex,
-    from: { opacity: 1 },
-    enter: { opacity: 0 },
+    initial:{opacity:1},
+    from: { opacity: 0 },
+    enter: { opacity: 1 },
     leave: { opacity: 0 },
     config: { duration: 3000, easing: easings.easeInCubic },
-    onRest: (_a, _b, item) => {
-      if (activeIndex === item) {
-        setActiveIndex(
-          activeIndex === imagePath1.length - 1 ? 0 : activeIndex + 1
-        );
-      }
-    },
-    exitBeforeEnter: true,
   });
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveIndex((prevIndex) => (prevIndex + 1) % imagePath1.length);
+    }, 5000);
+
+    return () => {
+      clearInterval(timer);
+    };
+  }, [imagePath1.length]);
 
   return (
     <section className={styles.section}>
@@ -60,18 +63,28 @@ export const Hero = () => {
               <animated.img
                 src={imagePath1[i]}
                 className={styles.image}
-                style={{ ...style }}
+                style={{
+                  ...style,
+                  position: "absolute",
+                  left: 0,
+                }}
               />
             ))}
             {transitions((style, i) => (
               <animated.img
                 src={imagePath2[i]}
                 className={styles.image}
-                style={{ ...style }}
+                style={{
+                  ...style,
+                  position: "absolute",
+                  left: 0,
+                  transform: "translateX(-100%)",
+                }}
               />
             ))}
           </div>
         </div>
+        <h1 className={styles.title}>dexola camp</h1>
       </div>
     </section>
   );
