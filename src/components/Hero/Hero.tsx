@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { animated, useTransition, easings } from "@react-spring/web";
 import styles from "./Hero.module.scss";
+import { MainTitle } from "./MainTitle";
 import containerStyles from "../../Container.module.scss";
 import imagePath1def from "../../assets/png/pic1_def.png";
 import imagePath2def from "../../assets/png/pic2_def.png";
@@ -30,9 +31,19 @@ export const Hero = () => {
     imagePath2var5,
   ];
 
-  const transitions = useTransition(activeIndex, {
+  const transitions1 = useTransition(activeIndex, {
     key: activeIndex,
-    initial:{opacity:1},
+    initial: { opacity: 1 },
+    from: { opacity: 0 },
+    enter: { opacity: 1 },
+    leave: { opacity: 0 },
+    config: { duration: 3000, easing: easings.easeInCubic },
+  });
+
+  const transitions2 = useTransition(activeIndex, {
+    delay: 1000,
+    key: activeIndex,
+    initial: { opacity: 1 },
     from: { opacity: 0 },
     enter: { opacity: 1 },
     leave: { opacity: 0 },
@@ -50,42 +61,52 @@ export const Hero = () => {
   }, [imagePath1.length]);
 
   return (
-    <section className={styles.section}>
-      <div className={containerStyles.container}>
-        <div className={styles.wrapper}>
-          <p className={styles.text}>
-            Prepare to be transported beyond the boundaries of traditional
-            gaming with the StarRunner Ecosystem – the beating heart that drives
-            the adrenaline-charged galactic P2E odyssey of 'StarRunner.'
-          </p>
-          <div className={styles.imageContainer}>
-            {transitions((style, i) => (
-              <animated.img
-                src={imagePath1[i]}
-                className={styles.image}
-                style={{
-                  ...style,
-                  position: "absolute",
-                  left: 0,
-                }}
-              />
-            ))}
-            {transitions((style, i) => (
-              <animated.img
-                src={imagePath2[i]}
-                className={styles.image}
-                style={{
-                  ...style,
-                  position: "absolute",
-                  left: 0,
-                  transform: "translateX(-100%)",
-                }}
-              />
-            ))}
+    <>
+      <section className={styles.hero}>
+        <div className={containerStyles.container}>
+          <div className={styles.wrapper}>
+            <p className={styles.text}>
+              Prepare to be transported beyond the boundaries of traditional
+              gaming with the StarRunner Ecosystem – the beating heart that
+              drives the adrenaline-charged galactic P2E odyssey of
+              'StarRunner.'
+            </p>
+            <div className={styles.imageContainer}>
+              {transitions1((style, i) => (
+                <animated.div
+                  key={i}
+                  className={styles.image}
+                  style={{
+                    ...style,
+                    background: `url(${imagePath1[i]}) center/cover no-repeat`,
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    transform: "translateY(-100%)",
+                  }}
+                />
+              ))}
+              {transitions2((style, i) => (
+                <animated.div
+                  key={i}
+                  className={styles.image}
+                  style={{
+                    ...style,
+                    background: `url(${imagePath2[i]}) center/cover no-repeat`,
+                    position: "absolute",
+                    top: 0,
+                    left: "50%",
+                    transform: "translateY(-100%)",
+                  }}
+                />
+              ))}
+            </div>
           </div>
         </div>
-        <h1 className={styles.title}>dexola camp</h1>
-      </div>
-    </section>
+      </section>
+      <section className={styles.section}>
+          <MainTitle text="dexola camp" />
+      </section>
+    </>
   );
 };
