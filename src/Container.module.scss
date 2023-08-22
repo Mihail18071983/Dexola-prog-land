@@ -6,7 +6,8 @@
 
 @media screen and (max-width: 743px) {
     .container {
-        max-width: 375px;
+        min-width: 375px;
+        max-width: 743px;
         padding-left: 24px;
         padding-right: 24px;
     }
@@ -15,14 +16,14 @@
 // Tablet
 @media screen and (min-width: 744px) {
     .container {
-        max-width: 744px;
+        width: 744px;
     }
 }
 
 // Desktop
 @media screen and (min-width: 1440px) {
     .container {
-        max-width: 1440px;
+        width:1440px;
         padding-left: 120px;
         padding-right: 120px;
     }

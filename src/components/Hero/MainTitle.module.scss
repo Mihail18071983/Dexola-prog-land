@@ -1,10 +1,7 @@
-.wrapper {
-    position: relative;
-}
+
 
 .title {
-    display: flex;
-  position: absolute;
+  // position: absolute;
   color: var(--white);
   font-family: Kanit;
   font-size: 120px;
@@ -12,6 +9,7 @@
   line-height: 1.254;
   text-transform: uppercase;
   overflow: hidden;
+  width: 2306px;
 
   @media screen and (min-width: 744px) {
     font-size: 280px;

@@ -78,7 +78,7 @@ export const Hero = () => {
                   className={styles.image}
                   style={{
                     ...style,
-                    background: `url(${imagePath1[i]}) center/cover no-repeat`,
+                    backgroundImage: `url(${imagePath1[i]})`,
                     position: "absolute",
                     top: 0,
                     left: 0,
@@ -92,7 +92,7 @@ export const Hero = () => {
                   className={styles.image}
                   style={{
                     ...style,
-                    background: `url(${imagePath2[i]}) center/cover no-repeat`,
+                    backgroundImage: `url(${imagePath2[i]})`,
                     position: "absolute",
                     top: 0,
                     left: "50%",
@@ -104,8 +104,18 @@ export const Hero = () => {
           </div>
         </div>
       </section>
-      <section className={styles.section}>
+      <section>
+        <div
+          style={{ overflow: "hidden" }}
+          className={containerStyles.container}
+        >
           <MainTitle text="dexola camp" />
+          <p className={styles.text1}>
+            Prepare to be transported beyond the boundaries of traditional
+            gaming with the StarRunner Ecosystem – the beating heart that drives
+            the adrenaline-charged galactic P2E odyssey of 'StarRunner.'
+          </p>
+        </div>
       </section>
     </>
   );
