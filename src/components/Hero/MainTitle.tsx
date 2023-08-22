@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React, {memo} from "react";
 import styles from "./MainTitle.module.scss";
 import { animated, useSpring, easings } from "@react-spring/web";
 
@@ -7,7 +7,7 @@ interface IProps {
   text: string;
 }
 
-export const MainTitle = ({ text }: IProps) => {
+export const MainTitle = memo(({ text }: IProps) => {
 
   const spring = useSpring({
     from: { transform: "translateX(-100%)" },
@@ -24,4 +24,4 @@ export const MainTitle = ({ text }: IProps) => {
       </animated.h1>
     </div>
   );
-};
+});
