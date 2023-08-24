@@ -14,22 +14,61 @@ import imagePath2var4 from "../../assets/png/pic2_var4.png";
 import imagePath1var5 from "../../assets/png/pic1_var5.png";
 import imagePath2var5 from "../../assets/png/pic2_var5.png";
 
+// eslint-disable-next-line react-refresh/only-export-components
+export const heroVar1 = [
+  {
+    path: imagePath1def,
+    name: "Legendary Artifact",
+    level: "Legendary",
+    totalGames: 189,
+    gamesWon: 125,
+    price: 2.5,
+  },
+  {
+    path: imagePath1var2,
+    name: "Epic Warrior",
+    level: "Rare",
+    totalGames: 134,
+    gamesWon: 100,
+    price: 1.5,
+  },
+  {
+    path: imagePath1var3,
+    name: "Mystic Spellbook",
+    level: "Common",
+    totalGames: 133,
+    gamesWon: 123,
+    price: 1.5,
+  },
+  {
+    path: imagePath1var4,
+    name: "Common Potion",
+    level: "Heroic",
+    totalGames: 87,
+    gamesWon: 43,
+    price: 1.2,
+  },
+  {
+    path: imagePath1var5,
+    name: "Heroic Blade",
+    level: "Epic",
+    totalGames: 56,
+    gamesWon: 15,
+    price: 2.8,
+  },
+];
+
+// eslint-disable-next-line react-refresh/only-export-components
+export const heroVar2 = [
+  { path: imagePath2def },
+  { path: imagePath2var2 },
+  { path: imagePath2var3 },
+  { path: imagePath2var4 },
+  { path: imagePath2var5 },
+];
+
 export const Hero = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const imagePath1 = [
-    imagePath1def,
-    imagePath1var2,
-    imagePath1var3,
-    imagePath1var4,
-    imagePath1var5,
-  ];
-  const imagePath2 = [
-    imagePath2def,
-    imagePath2var2,
-    imagePath2var3,
-    imagePath2var4,
-    imagePath2var5,
-  ];
 
   const transitions1 = useTransition(activeIndex, {
     key: activeIndex,
@@ -52,13 +91,13 @@ export const Hero = () => {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setActiveIndex((prevIndex) => (prevIndex + 1) % imagePath1.length);
+      setActiveIndex((prevIndex) => (prevIndex + 1) % heroVar1.length);
     }, 5000);
 
     return () => {
       clearInterval(timer);
     };
-  }, [imagePath1.length]);
+  }, []);
 
   return (
     <>
@@ -78,7 +117,7 @@ export const Hero = () => {
                   className={styles.image}
                   style={{
                     ...style,
-                    backgroundImage: `url(${imagePath1[i]})`,
+                    backgroundImage: `url(${heroVar1[i].path})`,
                     position: "absolute",
                     top: 0,
                     left: 0,
@@ -92,7 +131,7 @@ export const Hero = () => {
                   className={styles.image}
                   style={{
                     ...style,
-                    backgroundImage: `url(${imagePath2[i]})`,
+                    backgroundImage: `url(${heroVar2[i].path})`,
                     position: "absolute",
                     top: 0,
                     left: "50%",

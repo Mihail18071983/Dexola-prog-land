@@ -13,7 +13,7 @@ export const Main=()=> {
       <main>
         <Hero />
         <Features />
-        {/* <TopNfts /> */}
+        <TopNfts />
         {/* <JoinUs/> */}
       </main>
       {/* <Footer/> */}
