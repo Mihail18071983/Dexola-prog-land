@@ -12,9 +12,9 @@ export const Main=()=> {
       <Header />
       <main>
         <Hero />
-        {/* <Features />
-        <TopNfts />
-        <JoinUs/> */}
+        <Features />
+        {/* <TopNfts /> */}
+        {/* <JoinUs/> */}
       </main>
       {/* <Footer/> */}
     </>

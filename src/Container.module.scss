@@ -1,30 +1,25 @@
 // Mobile
 .container {
-    margin-left: auto;
-    margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+  min-width: 375px;
 }
 
-@media screen and (max-width: 743px) {
-    .container {
-        min-width: 375px;
-        max-width: 743px;
-        padding-left: 24px;
-        padding-right: 24px;
-    }
-}
 
 // Tablet
 @media screen and (min-width: 744px) {
-    .container {
-        width: 744px;
-    }
+  .container {
+    max-width: 744px;
+  }
 }
 
 // Desktop
 @media screen and (min-width: 1440px) {
-    .container {
-        width:1440px;
-        padding-left: 120px;
-        padding-right: 120px;
-    }
+  .container {
+    max-width: 1440px;
+    padding-left: 120px;
+    padding-right: 120px;
+  }
 }

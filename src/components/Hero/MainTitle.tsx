@@ -10,8 +10,8 @@ interface IProps {
 export const MainTitle = memo(({ text }: IProps) => {
 
   const spring = useSpring({
-    from: { transform: "translateX(-100vw)" },
-    to: { transform: "translateX(100vw)" },
+    from: { transform: "translateX(100vw)" },
+    to: { transform: "translateX(-100vw)" },
     config: { duration: 10000,},
     reset: true,
     loop: true
