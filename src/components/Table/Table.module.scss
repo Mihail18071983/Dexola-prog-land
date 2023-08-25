@@ -1,0 +1,19 @@
+.table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.avatar {
+  display: block;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.head {
+  color: var(--white);
+  font-family: Kanit;
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: -0.48px;
+}

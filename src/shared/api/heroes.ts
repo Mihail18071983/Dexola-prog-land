@@ -14,13 +14,10 @@ export interface IData {
   id: string;
 }
 
-export interface GetHerousResponse {
-  data: IData[]
-}
 
 export const getAll = async () => {
   try {
-    const { data } = await instance.get<GetHerousResponse>("/nfts");
+    const { data } = await instance.get<IData[]>("/nfts");
     return data;
   } catch (err) {
     console.log(err);

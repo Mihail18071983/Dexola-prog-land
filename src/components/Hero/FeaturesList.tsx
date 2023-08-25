@@ -11,7 +11,7 @@ const imageItems = [
   },
   {
     id: "02",
-    path: "src/assets/images/image1.jpg",
+    path: "src/assets/images/image2.jpg",
     name: "Staking",
     text: "Join a thriving community of stakers, united by their passion for exploration, strategy, and gaming.",
   },
