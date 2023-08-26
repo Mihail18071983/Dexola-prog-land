@@ -14,11 +14,11 @@ th {
   padding: 11px 24px;
 }
 
-tbody tr:nth-child(odd) {
+.tbody tr:nth-child(odd) {
   background: var(--background-table);
 }
 
-tr {
+.tr {
   border-bottom: 1px solid var(--accent-blue-table);
 }
 

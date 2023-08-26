@@ -11,7 +11,7 @@ export const Table = ({ items }: IProps) => {
     <div className={styles.container}>
     <table className={styles.table}>
       <thead>
-        <tr>
+        <tr className={styles.tr}>
           <th className={styles.head}></th>
           <th className={styles.head}>NFT Name</th>
           <th className={styles.head}>Rarity Level</th>
@@ -20,9 +20,9 @@ export const Table = ({ items }: IProps) => {
           <th className={styles.head}>Price (ETH)</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody className={styles.tbody}>
         {items.map((item: IData) => (
-          <tr key={item.id}>
+          <tr className={styles.tr} key={item.id}>
             <td className={styles.avatar}>
               <img
                 className={styles.img}
