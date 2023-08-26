@@ -1,5 +1,7 @@
 .container {
   overflow-x: auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .table {
@@ -13,6 +15,11 @@
 th {
   padding: 11px 24px;
 }
+
+// .table th,
+// .table td {
+//   border: 1px solid red;
+// }
 
 .tbody tr:nth-child(odd) {
   background: var(--background-table);
@@ -28,9 +35,9 @@ td {
   font-size: 16px;
   font-weight: 400;
   letter-spacing: -0.32px;
-  @media screen and (min-width:1440px) {
+  @media screen and (min-width: 1440px) {
     font-size: 18px;
-    letter-spacing: -0.36px
+    letter-spacing: -0.36px;
   }
 }
 
@@ -49,21 +56,36 @@ td {
 
 .head {
   color: var(--white);
-  font-family: Kanit;
-  font-size: 24px;
-  font-weight: 500;
-  letter-spacing: -0.48px;
   text-align: start;
+  vertical-align: top;
+  font-family: Kanit;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.4;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  @media screen and (min-width: 1440px) {
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    font-style: 24px;
+    letter-spacing: -0.48px;
+  }
 }
 
 .name {
   padding: 11px 24px;
   font-family: Roboto Mono;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
-  letter-spacing: -0.36px;
+  letter-spacing: -0.32px;
   max-width: 192px;
   @media screen and (min-width: 1440px) {
     max-width: 400px;
+    font-style: 18px;
+    letter-spacing: -0.36px;
   }
 }

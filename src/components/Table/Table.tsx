@@ -31,10 +31,10 @@ export const Table = ({ items }: IProps) => {
               />
             </td>
             <td className={styles.name}>{item.name}</td>
-            <td>{item.level}</td>
-            <td>{item.totalGames}</td>
-            <td>{item.gamesWon}</td>
-            <td>{item.price}</td>
+            <td className={styles.name}>{item.level}</td>
+            <td className={styles.name}>{item.totalGames}</td>
+            <td className={styles.name}>{item.gamesWon}</td>
+            <td className={styles.name}>{item.price}</td>
           </tr>
         ))}
       </tbody>
