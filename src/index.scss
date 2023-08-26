@@ -4,18 +4,20 @@
   --white: #ffffff;
   --black: #000000;
   --accent-blue: #09237e;
+  --accent-blue-table: #204ffe;
   --dark-grey: #2f2f2f;
   --light-grey: #b3b3b3;
   --background: #060412;
+  --background-table: #080b27;
   --warning-rose: #eb3795;
-  --button-color:#272A2E;
-  --button-color-hover: rgba(39, 42, 46, 0.9)
+  --button-color: #272a2e;
+  --button-color-hover: rgba(39, 42, 46, 0.9);
 }
 
 body {
   font-family: "roboto-mono";
   background-color: var(--background);
-  color:var(--white);
+  color: var(--white);
 }
 
 ul {
@@ -23,7 +25,9 @@ ul {
   padding: 0;
 }
 
-ul,li,a {
+ul,
+li,
+a {
   text-decoration: none;
   list-style: none;
 }

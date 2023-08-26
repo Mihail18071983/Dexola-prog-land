@@ -8,6 +8,7 @@ interface IProps {
 
 export const Table = ({ items }: IProps) => {
   return (
+    <div className={styles.container}>
     <table className={styles.table}>
       <thead>
         <tr>
@@ -22,14 +23,14 @@ export const Table = ({ items }: IProps) => {
       <tbody>
         {items.map((item: IData) => (
           <tr key={item.id}>
-            <td>
+            <td className={styles.avatar}>
               <img
-                className={styles.avatar}
+                className={styles.img}
                 src={item.avatar}
                 alt={item.name}
               />
             </td>
-            <td>{item.name}</td>
+            <td className={styles.name}>{item.name}</td>
             <td>{item.level}</td>
             <td>{item.totalGames}</td>
             <td>{item.gamesWon}</td>
@@ -37,6 +38,7 @@ export const Table = ({ items }: IProps) => {
           </tr>
         ))}
       </tbody>
-    </table>
+      </table>
+      </div>
   );
 };
