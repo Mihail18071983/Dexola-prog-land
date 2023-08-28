@@ -15,7 +15,7 @@ interface IProps {
 
 export const TopNfts = ({isShown, items}:IProps) => {  
   return (
-    <section className={styles.section}>
+    <section className={styles.topNfts}>
       <div className={containerStyles.container}>
         <SectionTitle part1="Top NFTs" part2="02" />
         {!isShown ?(<Table items={items} />):

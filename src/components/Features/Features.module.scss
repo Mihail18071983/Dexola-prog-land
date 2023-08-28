@@ -2,12 +2,12 @@
   padding-top: 24px;
   padding-bottom: 24px;
   @media screen and (min-width: 744px) {
-    padding-top: 32px;
-    padding-bottom: 32px;
+    padding-top: 115px;
+    padding-bottom: 90px;
   }
   @media screen and (min-width: 1440px) {
-    padding-top: 48px;
-    padding-bottom: 48px;
+    padding-top: 125px;
+    padding-bottom: 65px;
   }
 }
 
@@ -25,21 +25,6 @@
   }
 }
 
-.subTitle {
-  color: var(--white);
-  font-family: Kanit;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 1.4;
-  margin-bottom: 12px;
-  @media screen and (min-width: 744px) {
-    font-size: 20px;
-  }
-  @media screen and (min-width: 1440px) {
-    font-size: 24px;
-    letter-spacing: -0.48px;
-  }
-}
 
 .content {
   color: var(--light-grey);

@@ -10,7 +10,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 // import { ToastContainer } from "react-toastify";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <Router basename="/">
         <App />
         {/* <ToastContainer
@@ -25,5 +25,5 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
           pauseOnHover
         /> */}
     </Router>
-  </React.StrictMode>
+  // </React.StrictMode>
 );

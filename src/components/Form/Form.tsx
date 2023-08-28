@@ -1,44 +1,45 @@
-
+import React from "react";
 import styles from "./Form.module.scss";
-import { useForm } from "react-hook-form";
+import { SubmitHandler, useForm, Controller } from "react-hook-form";
 import { DevTool } from "@hookform/devtools";
 import { ColorRing } from "react-loader-spinner";
+import InputMask from "react-input-mask";
 
+const defaultPhoneNumber = "+38(0__) ___ __ __";
+
+type FormData = {
+  email: string;
+  phoneNumber: string;
+  password: string;
+  confirmPassword: string;
+};
 
 export const Form = () => {
   const {
     register,
     handleSubmit,
     control,
-    formState: { isSubmitting, errors }
+    reset,
+    formState: { isSubmitting, errors },
   } = useForm({
     defaultValues: {
       email: "",
-      phoneNumber: "",
+      phoneNumber: defaultPhoneNumber,
       password: "",
       confirmPassword: "",
     },
-    mode:"onChange"
+    // mode: "onChange",
   });
 
-  type FormData = {
-    email: string;
-    phoneNumber: string;
-    password: string;
-    confirmPassword: string;
-  };
-
-  
-
-  const onSubmitHandler = async (data: FormData) => {
+  const onSubmit: SubmitHandler<FormData> = (data) => {
     console.log(data);
+    reset()
   };
 
   return (
     <>
-      <form onSubmit={handleSubmit(onSubmitHandler)} className={styles.form}>
+      <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
         <label className={styles.label} htmlFor="email">
-          RECEIVER ADDRESS
           <input
             id="email"
             className={styles.input}
@@ -50,7 +51,7 @@ export const Form = () => {
               },
             })}
             type="text"
-            placeholder="wallet_address"
+            placeholder="Enter email"
             defaultValue=""
           />
           {errors.email && (
@@ -58,23 +59,25 @@ export const Form = () => {
           )}
         </label>
 
-        <label className={styles.label} htmlFor="phone">
-          AMOUNT TO SEND
-          <input
-            id="phone"
-            className={styles.input}
-            {...register("phoneNumber", {
-              required: true,
-            })}
-            type="text"
+        <label className={styles.label}>
+          <Controller
+            control={control}
+            defaultValue={defaultPhoneNumber}
+            name="phoneNumber"
+            render={({ field: { onChange, onBlur, ref,value } }) => (
+              <InputMask className={styles.input}
+                alwaysShowMask
+                mask="+38(099) 999-9999"
+                onBlur={onBlur}
+                onChange={onChange}
+                inputRef={ref}
+                value={value}
+              />
+            )}
           />
-          {errors.phoneNumber && (
-            <p className={styles.errMessage}>{errors.phoneNumber.message}</p>
-          )}
         </label>
 
         <label className={styles.label} htmlFor="password">
-          AMOUNT TO SEND
           <input
             id="password"
             className={styles.input}
@@ -82,6 +85,7 @@ export const Form = () => {
               required: true,
             })}
             type="text"
+            placeholder="Password"
           />
           {errors.password && (
             <p className={styles.errMessage}>{errors.password.message}</p>
@@ -89,7 +93,6 @@ export const Form = () => {
         </label>
 
         <label className={styles.label} htmlFor="confirmPassword">
-          AMOUNT TO SEND
           <input
             id="confirmPassword"
             className={styles.input}
@@ -97,6 +100,7 @@ export const Form = () => {
               required: true,
             })}
             type="text"
+            placeholder="Confirm Password"
           />
           {errors.password && (
             <p className={styles.errMessage}>{errors.password.message}</p>

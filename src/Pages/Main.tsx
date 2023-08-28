@@ -49,7 +49,7 @@ export const Main: FC = () => {
         <Hero />
         <Features />
         <TopNfts items={heroes} isShown={isShown} />
-        {/* <JoinUs/> */}
+        <JoinUs/>
       </main>
       {/* <Footer/> */}
     </>

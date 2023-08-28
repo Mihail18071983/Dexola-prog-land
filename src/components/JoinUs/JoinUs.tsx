@@ -1,10 +1,24 @@
-import React from 'react';
-import styles from "./JoinUs.module.scss"
+import React from "react";
+import styles from "./JoinUs.module.scss";
+import containerStyles from "../../Container.module.scss";
+import { SectionTitle } from "../../shared/Title/SectionTitle";
+import { SubTitle } from "../../shared/SubTitle/SubTitle";
+import { Content } from "../../shared/Content/Content";
+import { Form } from "../Form/Form";
 
-export const JoinUs=()=> {
+export const JoinUs = () => {
   return (
-    <section>
-      JoinUs
+    <section className={styles.joinUs}>
+      <div className={containerStyles.container}>
+        <SectionTitle part1={"join us"} part2={"03"} />
+        <SubTitle text="Experience the Power of StarRunner" />
+        <Content
+          text="Join Our Community and Embark on a Journey of Opportunities. 
+        Discover the full range of our services that cater to your needs.
+        We've got you covered with top-notch solutions."
+        />
+        <Form/>
+      </div>
     </section>
   );
-}
+};
