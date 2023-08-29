@@ -3,16 +3,13 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px;
   margin-left: auto;
   margin-right: auto;
-  border-radius: 20px;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border: 1px solid var(--accent-blue);
 }
 
 .label {
-  margin-left: auto;
-  margin-right: auto;
   text-align: center;
 }
 
@@ -22,45 +19,103 @@
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 5px;
-  border-radius: 4px;
-  padding: 5px 10px;
-  color: black;
+  padding-left: 30px;
+  padding-top: 8px;
+  padding-bottom: 16px;
+  border: none;
+  border-bottom: 1px solid var(--white);
+  background-color: transparent;
+  color: var(--dark-grey);
+  font-family: Roboto Mono;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.28px;
   &:disabled {
     opacity: 0.5;
   }
   &:focus {
     outline: none;
-    border: 1px solid #9c7334;
+    border-bottom: 1px solid var(--warning-rose);
   }
+}
+
+.phone {
+  padding-left: 80px;
+}
+
+.asterix {
+  position: absolute;
+  top: 8px;
+  left: 0;
+  color: var(--warning-rose);
+  font-family: Roboto Mono;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.32px;
+}
+
+
+.errMessage {
+  color: var(--warning-rose);
+  margin: 0;
+  padding: 5px 10px;
+}
+
+.formLabelPasswordConteiner {
+  position: relative;
+}
+
+.showPasswordButton {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: transparent;
+  border: none;
+  margin: 0;
+  line-height: 0;
+  padding: 10px;
+  color: var(--white);
+}
+
+.passwordIcon {
+  width: 24px;
+  height: 24px;
 }
 
 .btn {
-  display: flex;
-  color: #fff;
-  max-width: 100px;
-  text-align: center;
+  width: 100%;
+}
+
+.btnContent {
   margin-left: auto;
   margin-right: auto;
-}
-
-.message {
-  color: #131313;
-  text-align: center;
-  @media screen and (max-width: 767px) {
-    font-size: 16px;
-  }
-
-  @media screen and (min-width: 768px) and (max-width: 1199px) {
-    font-size: 20px;
-  }
-
-  @media screen and (min-width: 1200px) {
-    font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10.5px;
+  &::before {
+    content: "";
+    display: block;
+    width: 22.5px;
+    height: 1.5px;
+    background-color: var(--white);
   }
 }
 
-.errMessage {
-  color: red;
-  margin: 0;
-  padding: 5px 10px;
+.flagIcon{
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top:0;
+  left: 0;
+}
+
+.arrow {
+  position: absolute;
+  top:50%;
+  transform: translateY(-60%);
+  left:38px
 }

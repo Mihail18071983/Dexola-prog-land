@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Form.module.scss";
 import { SubmitHandler, useForm, Controller } from "react-hook-form";
 import { DevTool } from "@hookform/devtools";
 import { ColorRing } from "react-loader-spinner";
 import InputMask from "react-input-mask";
+import { ReactComponent as EyeClosed } from "../../assets/svg/eyeClosed.svg";
+import { ReactComponent as EyeOpen } from "../../assets/svg/eyeOpened.svg";
+import { ReactComponent as Flag } from "../../assets/svg/flag.svg";
+import { ReactComponent as Arrow } from "../../assets/svg/arrowUp.svg";
+import { Button } from "../../shared/Button/Button";
 
 const defaultPhoneNumber = "+38(0__) ___ __ __";
 
@@ -20,6 +25,7 @@ export const Form = () => {
     handleSubmit,
     control,
     reset,
+    setError,
     formState: { isSubmitting, errors },
   } = useForm({
     defaultValues: {
@@ -28,86 +34,155 @@ export const Form = () => {
       password: "",
       confirmPassword: "",
     },
-    // mode: "onChange",
+    mode: "onBlur",
   });
 
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
   const onSubmit: SubmitHandler<FormData> = (data) => {
+    if (data.password !== data.confirmPassword) {
+      setError("confirmPassword", {
+        type: "manual",
+        message: "Passwords do not match",
+      });
+      return;
+    }
     console.log(data);
-    reset()
+    reset();
   };
 
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
         <label className={styles.label} htmlFor="email">
-          <input
-            id="email"
-            className={styles.input}
-            {...register("email", {
-              required: true,
-              pattern: {
-                value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-                message: "Please enter a valid address wallet!",
-              },
-            })}
-            type="text"
-            placeholder="Enter email"
-            defaultValue=""
-          />
+          <div
+            className={`${styles.formLabelPasswordConteiner} ${styles.wrapper}`}
+          >
+            <div className={styles.asterix}>*</div>
+            <input
+              id="email"
+              className={styles.input}
+              {...register("email", {
+                required: true,
+                pattern: {
+                  value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                  message: "Is not valid email",
+                },
+              })}
+              type="text"
+              placeholder="Enter email"
+              defaultValue=""
+            />
+          </div>
+
           {errors.email && (
             <p className={styles.errMessage}>{errors.email.message}</p>
           )}
         </label>
 
         <label className={styles.label}>
-          <Controller
-            control={control}
-            defaultValue={defaultPhoneNumber}
-            name="phoneNumber"
-            render={({ field: { onChange, onBlur, ref,value } }) => (
-              <InputMask className={styles.input}
-                alwaysShowMask
-                mask="+38(099) 999-9999"
-                onBlur={onBlur}
-                onChange={onChange}
-                inputRef={ref}
-                value={value}
-              />
-            )}
-          />
+          <div
+            className={`${styles.formLabelPasswordConteiner} ${styles.wrapper}`}
+          >
+            <Arrow className={styles.arrow } />
+            <Flag className={styles.flagIcon} />
+            <Controller
+              control={control}
+              defaultValue={defaultPhoneNumber}
+              name="phoneNumber"
+              rules={{
+                required: true,
+                pattern: {
+                  value: /^\+38\(\d{3}\) \d{3}-\d{4}$/,
+                  message: "Please complete this field",
+                },
+              }}
+              render={({ field: { onChange, onBlur, ref, value } }) => (
+                <InputMask
+                  className={`${styles.input} ${styles.phone}`}
+                  alwaysShowMask
+                  mask="+38(099) 999-9999"
+                  onBlur={onBlur}
+                  onChange={onChange}
+                  inputRef={ref}
+                  value={value}
+                />
+              )}
+            />
+          </div>
+
+          {errors.phoneNumber && (
+            <p className={styles.errMessage}>{errors.phoneNumber.message}</p>
+          )}
         </label>
 
         <label className={styles.label} htmlFor="password">
-          <input
-            id="password"
-            className={styles.input}
-            {...register("password", {
-              required: true,
-            })}
-            type="text"
-            placeholder="Password"
-          />
+          <div
+            className={`${styles.formLabelPasswordConteiner} ${styles.wrapper}`}
+          >
+            <div className={styles.asterix}>*</div>
+            <input
+              id="password"
+              className={styles.input}
+              {...register("password", {
+                required: "Please complete this field",
+              })}
+              type={showPassword ? "text" : "password"}
+              placeholder="Password"
+            />
+            <button
+              className={styles.showPasswordButton}
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? (
+                <EyeClosed className={styles.passwordIcon} />
+              ) : (
+                <EyeOpen className={styles.passwordIcon} />
+              )}
+            </button>
+          </div>
           {errors.password && (
             <p className={styles.errMessage}>{errors.password.message}</p>
           )}
         </label>
 
         <label className={styles.label} htmlFor="confirmPassword">
-          <input
-            id="confirmPassword"
-            className={styles.input}
-            {...register("confirmPassword", {
-              required: true,
-            })}
-            type="text"
-            placeholder="Confirm Password"
-          />
-          {errors.password && (
-            <p className={styles.errMessage}>{errors.password.message}</p>
+          <div
+            className={`${styles.formLabelPasswordConteiner} ${styles.wrapper} `}
+          >
+            <div className={styles.asterix}>*</div>
+            <input
+              id="confirmPassword"
+              className={styles.input}
+              {...register("confirmPassword", {
+                required: "Please complete this field",
+              })}
+              type={showConfirmPassword ? "text" : "password"}
+              placeholder="Confirm Password"
+            />
+            <button
+              className={styles.showPasswordButton}
+              type="button"
+              onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+            >
+              {showConfirmPassword ? (
+                <EyeClosed className={styles.passwordIcon} />
+              ) : (
+                <EyeOpen className={styles.passwordIcon} />
+              )}
+            </button>
+          </div>
+
+          {errors.confirmPassword && (
+            <p className={styles.errMessage}>
+              {errors.confirmPassword.message}
+            </p>
           )}
         </label>
 
-        <button className={styles.btn} type="submit">
+        <Button className={styles.btn} type="submit">
           {isSubmitting ? (
             <ColorRing
               visible={true}
@@ -119,9 +194,9 @@ export const Form = () => {
               colors={["#e15b64", "#f47e60", "#f8b26a", "#abbd81", "#849b87"]}
             />
           ) : (
-            "Send it"
+            <span className={styles.btnContent}>Send it</span>
           )}
-        </button>
+        </Button>
       </form>
       <DevTool control={control} />
     </>
