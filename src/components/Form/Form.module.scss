@@ -3,25 +3,26 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 28px;
   margin-left: auto;
   margin-right: auto;
   border: 1px solid var(--accent-blue);
 }
 
 .label {
+  position: relative;
   text-align: center;
 }
 
 .input {
   display: block;
   width: 100%;
+  height: 40px;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 5px;
   padding-left: 30px;
-  padding-top: 8px;
-  padding-bottom: 16px;
+  padding-top: 14px;
+  padding-bottom: 14px;
   border: none;
   border-bottom: 1px solid var(--white);
   background-color: transparent;
@@ -38,6 +39,7 @@
     outline: none;
     border-bottom: 1px solid var(--warning-rose);
   }
+
 }
 
 .phone {
@@ -46,7 +48,8 @@
 
 .asterix {
   position: absolute;
-  top: 8px;
+  top: 50%;
+  transform: translateY(-50%);
   left: 0;
   color: var(--warning-rose);
   font-family: Roboto Mono;
@@ -56,11 +59,13 @@
   letter-spacing: 0.32px;
 }
 
-
 .errMessage {
+  position: absolute;
+  bottom: -70%;
+  transform: translateY(-50%);
+  left: 0;
   color: var(--warning-rose);
   margin: 0;
-  padding: 5px 10px;
 }
 
 .formLabelPasswordConteiner {
@@ -105,17 +110,20 @@
   }
 }
 
-.flagIcon{
+.flagIcon {
   width: 30px;
   height: 30px;
   position: absolute;
-  top:0;
+  transform: translateY(-50%);
+  top: 50%;
   left: 0;
 }
 
 .arrow {
   position: absolute;
-  top:50%;
-  transform: translateY(-60%);
-  left:38px
+  top: 50%;
+  transform: translateY(-50%);
+  left: 38px;
 }
+
+

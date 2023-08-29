@@ -85,7 +85,7 @@ export const Form = () => {
           <div
             className={`${styles.formLabelPasswordConteiner} ${styles.wrapper}`}
           >
-            <Arrow className={styles.arrow } />
+            <Arrow className={styles.arrow} />
             <Flag className={styles.flagIcon} />
             <Controller
               control={control}
@@ -111,7 +111,6 @@ export const Form = () => {
               )}
             />
           </div>
-
           {errors.phoneNumber && (
             <p className={styles.errMessage}>{errors.phoneNumber.message}</p>
           )}
