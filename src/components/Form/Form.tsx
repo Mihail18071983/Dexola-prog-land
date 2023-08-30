@@ -83,7 +83,7 @@ export const Form = () => {
 
         <label className={styles.label}>
           <div
-            className={`${styles.formLabelPasswordConteiner} ${styles.wrapper}`}
+            className={styles.formLabelPasswordConteiner}
           >
             <Arrow className={styles.arrow} />
             <Flag className={styles.flagIcon} />
@@ -118,7 +118,7 @@ export const Form = () => {
 
         <label className={styles.label} htmlFor="password">
           <div
-            className={`${styles.formLabelPasswordConteiner} ${styles.wrapper}`}
+            className={styles.formLabelPasswordConteiner}
           >
             <div className={styles.asterix}>*</div>
             <input
@@ -149,7 +149,7 @@ export const Form = () => {
 
         <label className={styles.label} htmlFor="confirmPassword">
           <div
-            className={`${styles.formLabelPasswordConteiner} ${styles.wrapper} `}
+            className={styles.formLabelPasswordConteiner}
           >
             <div className={styles.asterix}>*</div>
             <input

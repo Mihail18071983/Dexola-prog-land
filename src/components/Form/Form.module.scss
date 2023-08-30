@@ -40,13 +40,28 @@
     border-bottom: 1px solid var(--warning-rose);
   }
   &::placeholder {
-    color:var(--dark-grey)
+    color: var(--dark-grey);
+  }
+
+  @media screen and (min-width: 744px) {
+    font-style: 16px;
+    line-height: 1.31;
+    letter-spacing: -0.32px;
+    padding-top: 11px;
+    padding-bottom: 11px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    padding-top: 8px;
+    padding-bottom:8px;
+    font-style: 18px;
+    line-height: 1.33;
+    letter-spacing: -0.36px;
   }
 }
 
-
 .phone {
-  padding-left: 80px;
+  padding-left: 78px;
 }
 
 .asterix {
@@ -64,11 +79,16 @@
 
 .errMessage {
   position: absolute;
-  bottom: -70%;
+  bottom: -40%;
   transform: translateY(-50%);
   left: 0;
   color: var(--warning-rose);
   margin: 0;
+  font-family: Roboto Mono;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.85px;
+  letter-spacing: 0.26px;
 }
 
 .formLabelPasswordConteiner {
@@ -95,6 +115,17 @@
 
 .btn {
   width: 100%;
+  @media screen and (min-width: 744px) {
+    width: 235px;
+    margin-left: 0;
+    margin-right: auto;
+  }
+  @media screen and (min-width: 1440px) {
+    font-size: 16px;
+    line-height: 1.5;
+    padding-left: 66px;
+    padding-right: 66px;
+  }
 }
 
 .btnContent {
@@ -128,5 +159,3 @@
   transform: translateY(-50%);
   left: 38px;
 }
-
-
