@@ -8,11 +8,12 @@ interface IProps {
   url?: string;
   className?: string;
   style?: { [key: string]: string };
+  onClick?:() => void;
 }
 
-export const Button = ({ type = "button", children, className }: IProps) => {
+export const Button = ({ type = "button", children, className, onClick }: IProps) => {
   return (
-    <button className={`${styles.button} ${className}`} type={type}>
+    <button onClick={onClick} className={`${styles.button} ${className}`} type={type}>
       {children}
     </button>
   );

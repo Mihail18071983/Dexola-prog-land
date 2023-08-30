@@ -3,13 +3,15 @@ import styles from "./Header.module.scss";
 import containerStyles from "../../Container.module.scss";
 import { ReactComponent as Logo } from "../../assets/svg/logo.svg";
 import { Link } from "react-router-dom";
+import { Button } from "../../shared/Button/Button";
 
 interface HeaderProps {
   headerRef: MutableRefObject<HTMLElement | null>;
+  scrollToJoinUs: () => void;
 }
 
 
-export const Header:FC<HeaderProps> = ({headerRef}) => {
+export const Header:FC<HeaderProps> = ({headerRef, scrollToJoinUs}) => {
   return (
     <header ref={headerRef} className={styles.header}>
       <div className={containerStyles.container}>
@@ -17,9 +19,9 @@ export const Header:FC<HeaderProps> = ({headerRef}) => {
           <Link className={styles.logo} to="/">
             <Logo />
           </Link>
-          <Link className={styles.link} to="/join-now">
+          <Button type="button" className={styles.link} onClick={scrollToJoinUs} >
             Join Now
-          </Link>
+          </Button>
         </nav>
       </div>
     </header>

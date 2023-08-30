@@ -1,4 +1,4 @@
-import React from "react";
+import React, {MutableRefObject} from "react";
 import styles from "./JoinUs.module.scss";
 import containerStyles from "../../Container.module.scss";
 import { SectionTitle } from "../../shared/Title/SectionTitle";
@@ -6,9 +6,13 @@ import { SubTitle } from "../../shared/SubTitle/SubTitle";
 import { Content } from "../../shared/Content/Content";
 import { Form } from "../Form/Form";
 
-export const JoinUs = () => {
+interface IProps {
+  joinUsRef: MutableRefObject<HTMLElement | null>;
+}
+
+export const JoinUs = ({joinUsRef}:IProps) => {
   return (
-    <section className={styles.joinUs}>
+    <section ref={joinUsRef} className={styles.joinUs}>
       <div className={containerStyles.container}>
         <SectionTitle part1={"join us"} part2={"03"} />
         <SubTitle text="Experience the Power of StarRunner" />
