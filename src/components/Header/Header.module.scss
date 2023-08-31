@@ -1,10 +1,10 @@
 .header {
   padding: 15px 0;
   background-color: var(--background);
-  border-bottom: 1px solid var(--accent-blue); 
+  border-bottom: 1px solid var(--accent-blue);
   width: 100%;
   position: fixed;
-  top:0;
+  top: 0;
   z-index: 100;
 }
 
@@ -39,4 +39,19 @@
     background-color: var(--dark-grey);
   }
 }
+
+  .header_logo {
+    color:var(--white);
+    transition: color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    &:hover {
+      color: var(--accent-blue);
+    }
+    @media screen and (min-width: 744px) {
+      padding-right: 118px;
+    }
+  }
+
+  .icon {
+    fill: currentColor;
+  }
 

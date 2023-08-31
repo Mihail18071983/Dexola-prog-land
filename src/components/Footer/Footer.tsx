@@ -2,7 +2,6 @@ import React from "react";
 import styles from "./Footer.module.scss";
 import containerStyles from "../../Container.module.scss";
 import { Link } from "react-router-dom";
-// import { ReactComponent as FacebookLogo } from "../../assets/svg/facebook.svg";
 import { Facebook } from "../../shared/svgComponents/Facebook";
 import { Instagram } from "../../shared/svgComponents/Instagram";
 import { Telegram } from "../../shared/svgComponents/Telegram";

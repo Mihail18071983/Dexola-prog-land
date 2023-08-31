@@ -1,7 +1,8 @@
-import React, {FC, MutableRefObject} from "react";
+import React, { FC, MutableRefObject } from "react";
 import styles from "./Header.module.scss";
 import containerStyles from "../../Container.module.scss";
-import { ReactComponent as Logo } from "../../assets/svg/logo.svg";
+// import { ReactComponent as Logo } from "../../assets/svg/logo.svg";
+import { Logo } from "../../shared/svgComponents/Logo";
 import { Link } from "react-router-dom";
 import { Button } from "../../shared/Button/Button";
 
@@ -10,19 +11,22 @@ interface HeaderProps {
   scrollToJoinUs: () => void;
 }
 
-
-export const Header:FC<HeaderProps> = ({headerRef, scrollToJoinUs}) => {
+export const Header: FC<HeaderProps> = ({ headerRef, scrollToJoinUs }) => {
   return (
     <header ref={headerRef} className={styles.header}>
       <div className={containerStyles.container}>
-        <nav className={styles.nav}>
-          <Link className={styles.logo} to="/">
-            <Logo />
+        <div className={styles.nav}>
+          <Link to="https://dexola.com" className={styles.header_logo}>
+            <Logo width="35" height="20" className={styles.icon} />
           </Link>
-          <Button type="button" className={styles.link} onClick={scrollToJoinUs} >
+          <Button
+            type="button"
+            className={styles.link}
+            onClick={scrollToJoinUs}
+          >
             Join Now
           </Button>
-        </nav>
+        </div>
       </div>
     </header>
   );
