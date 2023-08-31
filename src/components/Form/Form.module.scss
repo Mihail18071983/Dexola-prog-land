@@ -62,6 +62,10 @@
 
 .phone {
   padding-left: 78px;
+  color: var(--dark-grey);
+  &:focus {
+    color:var(--white)
+  }
 }
 
 .asterix {

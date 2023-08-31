@@ -8,6 +8,7 @@ import { ReactComponent as DiscordLogo } from "../../assets/svg/discord.svg";
 import { ReactComponent as TelegrammLogo } from "../../assets/svg/telegram.svg";
 import { Content } from "../../shared/Content/Content";
 
+
 export const Footer = () => {
   return (
     <footer className={styles.footer}>
