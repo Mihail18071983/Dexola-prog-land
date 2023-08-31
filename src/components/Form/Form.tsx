@@ -81,7 +81,7 @@ export const Form = () => {
           )}
         </label>
 
-        <label className={styles.label}>
+        <label htmlFor="phoneNumder" className={styles.label}>
           <div
             className={styles.formLabelPasswordConteiner}
           >
@@ -100,6 +100,7 @@ export const Form = () => {
               }}
               render={({ field: { onChange, onBlur, ref, value } }) => (
                 <InputMask
+                  id="phoneNumber"
                   className={`${styles.input} ${styles.phone}`}
                   alwaysShowMask
                   mask="+38(099) 999-9999"
@@ -130,7 +131,7 @@ export const Form = () => {
               type={showPassword ? "text" : "password"}
               placeholder="Password"
             />
-            <button
+            <button aria-label="show/hide password"
               className={styles.showPasswordButton}
               type="button"
               onClick={() => setShowPassword(!showPassword)}
@@ -161,7 +162,7 @@ export const Form = () => {
               type={showConfirmPassword ? "text" : "password"}
               placeholder="Confirm Password"
             />
-            <button
+            <button aria-label="show/hide password"
               className={styles.showPasswordButton}
               type="button"
               onClick={() => setShowConfirmPassword(!showConfirmPassword)}

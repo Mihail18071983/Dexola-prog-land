@@ -29,7 +29,7 @@ export const FeaturesList = () => {
       {imageItems.map((item) => {
         return (
           <li key={item.id} className={styles.item}>
-            <img className={styles.image} src={item.path} alt={item.name} />
+            <img loading="lazy" className={styles.image} src={item.path} alt={item.name} />
             <div className={styles.contentWrapper}>
               <h4 className={styles.title}>
                 <span>{item.id}</span>

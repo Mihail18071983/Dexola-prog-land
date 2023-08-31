@@ -1,7 +1,6 @@
 import React, { FC, MutableRefObject } from "react";
 import styles from "./Header.module.scss";
 import containerStyles from "../../Container.module.scss";
-// import { ReactComponent as Logo } from "../../assets/svg/logo.svg";
 import { Logo } from "../../shared/svgComponents/Logo";
 import { Link } from "react-router-dom";
 import { Button } from "../../shared/Button/Button";

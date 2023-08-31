@@ -6,12 +6,18 @@
     justify-content: center;
     gap: 16px;
   }
+  @media screen and (min-width: 1440px) {
+    gap: 40px;
+  }
 }
 
 .item {
   overflow: hidden;
   @media screen and (min-width: 744px) {
     flex-basis: calc((100% - 16px) / 3);
+  }
+  @media screen and (min-width: 1440px) {
+    flex-basis: calc((100% - 40px) / 3);
   }
 }
 
@@ -68,7 +74,7 @@
   text-transform: uppercase;
   display: flex;
   align-items: center;
-  gap:7px;
+  gap: 7px;
   &::before {
     content: "";
     display: block;
