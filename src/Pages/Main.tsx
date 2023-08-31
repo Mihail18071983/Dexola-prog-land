@@ -54,7 +54,7 @@ export const Main: FC = () => {
         <TopNfts items={heroes} isShown={isShown} />
         <JoinUs joinUsRef={joinUsRef} />
       </main>
-      {/* <Footer/> */}
+      <Footer/>
     </>
   );
 };
