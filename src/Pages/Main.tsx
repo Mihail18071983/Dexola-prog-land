@@ -14,7 +14,6 @@ export const Main: FC = () => {
   const headerRef = useRef<HTMLElement | null>(null);
   const joinUsRef = useRef<HTMLElement | null>(null);
   const [width] = useWindowSize();
-  console.log("windowWidth", width);
   const [height, setHeight] = useState<number>(0);
   const [isShown, setIsShown] = useState(false);
   const [isFooterShown, setIsFooterShown] = useState(false);
