@@ -17,6 +17,7 @@ export const Main: FC = () => {
   console.log("windowWidth", width);
   const [height, setHeight] = useState<number>(0);
   const [isShown, setIsShown] = useState(false);
+  const [isFooterShown, setIsFooterShown] = useState(false);
 
   useEffect(() => {
     if (headerRef.current) {
@@ -24,6 +25,9 @@ export const Main: FC = () => {
       setHeight(headerHeight);
     }
     width > 743 ? setIsShown(false) : setIsShown(true);
+    width > 743 && width < 1440
+      ? setIsFooterShown(false)
+      : setIsFooterShown(true);
   }, [width]);
 
   const scrollToJoinUs = () => {
@@ -54,7 +58,7 @@ export const Main: FC = () => {
         <TopNfts items={heroes} isShown={isShown} />
         <JoinUs joinUsRef={joinUsRef} />
       </main>
-      <Footer/>
+      <Footer isShown={isFooterShown} />
     </>
   );
 };
