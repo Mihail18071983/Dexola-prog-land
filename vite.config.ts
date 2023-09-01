@@ -5,7 +5,6 @@ import scss from "rollup-plugin-scss";
 import resolve from "@rollup/plugin-node-resolve";
 // https://vitejs.dev/config/
 export default defineConfig({
-  root: '/',
   plugins: [
     svgr(),
     react(),
