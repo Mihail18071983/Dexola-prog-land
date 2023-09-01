@@ -1,5 +1,6 @@
 import React from "react";
-import styles from "./Subtitle.module.scss";
+
+import styles from "./SubTitle.module.scss";
 
 interface IProps {
   text: string;
