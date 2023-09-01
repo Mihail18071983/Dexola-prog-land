@@ -2,26 +2,7 @@ import React from "react";
 import styles from "./FeaturesList.module.scss";
 import { Button } from "../../shared/Button/Button";
 
-const imageItems = [
-  {
-    id: "01",
-    path: "src/assets/images/image1.jpg",
-    name: "STRU Token sale",
-    text: "The StarRunner Token the exclusive crypto currency fueling the adventure of the Play-to-Earn sensation.",
-  },
-  {
-    id: "02",
-    path: "src/assets/images/image2.jpg",
-    name: "Staking",
-    text: "Join a thriving community of stakers, united by their passion for exploration, strategy, and gaming.",
-  },
-  {
-    id: "03",
-    path: "src/assets/images/image3.jpg",
-    name: "NFT minting",
-    text: "Every StarRunner NFT tells a story – YOUR story. This NFT encapsulates the essence of your journey like never before.",
-  },
-];
+import { imageItems } from "../../imageItems";
 
 export const FeaturesList = () => {
   return (
