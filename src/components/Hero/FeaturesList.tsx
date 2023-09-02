@@ -23,7 +23,7 @@ export const FeaturesList = () => {
                 srcSet={`${item.pathMob} 1x, ${item.pathMob2X} 2x`}
                 media="(max-width: 743px)"
               />
-              <img className={styles.image} src={item.pathMob} alt={item.name} />
+              <img loading="lazy" className={styles.image} src={item.pathMob} alt={item.name} />
             </picture>
             <div className={styles.contentWrapper}>
               <h4 className={styles.title}>
