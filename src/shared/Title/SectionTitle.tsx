@@ -8,9 +8,9 @@ interface IProps {
 
 export const SectionTitle = ({ part1, part2 }:IProps) => {
   return (
-    <h1 className={styles.title}>
+    <h2 className={styles.title}>
       <span>{part1}</span>
       <span>{part2}</span>
-    </h1>
+    </h2>
   );
 };

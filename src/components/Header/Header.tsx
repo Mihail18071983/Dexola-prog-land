@@ -15,7 +15,7 @@ export const Header: FC<HeaderProps> = ({ headerRef, scrollToJoinUs }) => {
     <header ref={headerRef} className={styles.header}>
       <div className={containerStyles.container}>
         <div className={styles.nav}>
-          <Link to="https://dexola.com" className={styles.header_logo}>
+          <Link to="https://dexola.com" aria-label="logo dx" className={styles.header_logo}>
             <Logo width="35" height="20" className={styles.icon} />
           </Link>
           <Button

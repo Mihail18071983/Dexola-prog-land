@@ -85,8 +85,8 @@ export const Form = () => {
           <div
             className={styles.formLabelPasswordConteiner}
           >
-            <Arrow className={styles.arrow} />
-            <Flag className={styles.flagIcon} />
+            <Arrow aria-label="country code choosing" className={styles.arrow} />
+            <Flag aria-label="country flag" className={styles.flagIcon} />
             <Controller
               control={control}
               defaultValue={defaultPhoneNumber}
