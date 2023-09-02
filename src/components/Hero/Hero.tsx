@@ -143,7 +143,7 @@ export const Hero = () => {
           </div>
         </div>
       </section>
-      <section>
+      <section className={styles.animation}>
         <div
           style={{ overflow: "hidden" }}
           className={containerStyles.container}

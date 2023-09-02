@@ -16,10 +16,6 @@ th {
   padding: 11px 24px;
 }
 
-// .table th,
-// .table td {
-//   border: 1px solid red;
-// }
 
 .tbody tr:nth-child(odd) {
   background: var(--background-table);
@@ -71,7 +67,7 @@ td {
     padding-right: 24px;
     padding-top: 12px;
     padding-bottom: 12px;
-    font-style: 24px;
+    font-size: 24px;
     letter-spacing: -0.48px;
   }
 }
@@ -85,7 +81,7 @@ td {
   max-width: 192px;
   @media screen and (min-width: 1440px) {
     max-width: 400px;
-    font-style: 18px;
+    font-size: 18px;
     letter-spacing: -0.36px;
   }
 }

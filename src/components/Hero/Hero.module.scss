@@ -2,6 +2,13 @@
   border-bottom: 1px solid var(--accent-blue);
 }
 
+.animation {
+  padding-bottom: 127px;
+  @media screen and (min-width: 1440px) {
+    padding-bottom: 141px;
+  }
+}
+
 .text {
   font-family: Roboto Mono;
   font-weight: 400;

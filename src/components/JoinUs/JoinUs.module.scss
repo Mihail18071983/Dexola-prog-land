@@ -1,7 +1,12 @@
 .joinUs {
   padding-top: 0px;
-  padding-bottom: 65px;
-  border-bottom: 1px solid var(--accent-blue);
+  padding-bottom: 70px;
+  @media screen and (min-width: 744px) {
+    margin-bottom: 76px;
+  }
+@media screen and (min-width:1440px) {
+  margin-bottom: 125px;
+}
 }
 
 .wrapper {

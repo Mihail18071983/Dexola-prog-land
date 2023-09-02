@@ -10,17 +10,22 @@ export const FeaturesList = () => {
       {imageItems.map((item) => {
         return (
           <li key={item.id} className={styles.item}>
-            <img loading="lazy" className={styles.image} src={item.path} alt={item.name} />
+            <img
+              loading="lazy"
+              className={styles.image}
+              src={item.path}
+              alt={item.name}
+            />
             <div className={styles.contentWrapper}>
               <h4 className={styles.title}>
                 <span>{item.id}</span>
                 <span>{item.name}</span>
               </h4>
               <p className={styles.text}>{item.text}</p>
+              <Button className={styles.btn} type="button">
+                <span className={styles.btnContent}>discover now</span>
+              </Button>
             </div>
-            <Button type="button">
-              <span className={styles.btnContent}>discover now</span>
-            </Button>
           </li>
         );
       })}
