@@ -41,7 +41,7 @@
 .wrapper {
   display: flex;
   align-items: flex-end;
-  height: 312px;
+  min-height: 312px;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25),
     0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
@@ -64,12 +64,11 @@
   margin-right: auto;
   position: relative;
   width: 361px;
-  height: auto;
   @media screen and (min-width: 744px) {
-    width: 696px;
+    min-width: 696px;
   }
   @media screen and (min-width: 1440px) {
-    width: 466px;
+    min-width: 466px;
   }
   @media screen and (max-width: 743px) {
     flex-grow: 1;
@@ -78,12 +77,14 @@
 
 .image {
   width: 50%;
-  height: 312px;
+  min-height: 312px;
+  height: auto;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   overflow: hidden;
   @media screen and (min-width: 744px) and (max-width: 1439px) {
-    background-size: 348px 312px;
+    background-position: top;
+    background-size:  cover;
   }
 }

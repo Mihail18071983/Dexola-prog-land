@@ -119,7 +119,7 @@ export const Hero = () => {
                     ...style,
                     backgroundImage: `url(${heroVar1[i].path})`,
                     position: "absolute",
-                    top: 0,
+                    top: "100%",
                     left: 0,
                     transform: "translateY(-100%)",
                   }}
@@ -133,7 +133,7 @@ export const Hero = () => {
                     ...style,
                     backgroundImage: `url(${heroVar2[i].path})`,
                     position: "absolute",
-                    top: 0,
+                    top: '100%',
                     left: "50%",
                     transform: "translateY(-100%)",
                   }}
