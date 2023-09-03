@@ -27,8 +27,19 @@
 
 .image {
   display: block;
-  min-width: 100%;
+  width: 100%;
+  min-width:329px;
+  min-height: 232px;
   margin-bottom: 16px;
+  aspect-ratio: attr(width) / attr(height);
+  @media screen and (min-width:744px){
+    min-width: 221px;
+    min-height: 240px;
+  }
+  @media screen and (min-width:1440px) {
+    min-width:373px;
+    min-height: 307px;
+  }
 }
 
 .contentWrapper {
