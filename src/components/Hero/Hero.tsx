@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { animated, useTransition, easings } from "@react-spring/web";
+import { animated, useTransition} from "@react-spring/web";
 import styles from "./Hero.module.scss";
 import { MainTitle } from "./MainTitle";
 import { heroVar1, heroVar2 } from "../../imageHeroes";
@@ -15,23 +15,23 @@ export const Hero = () => {
     from: { opacity: 0 },
     enter: { opacity: 1 },
     leave: { opacity: 0 },
-    config: { duration: 3000, easing: easings.easeInCubic },
+    config: { duration: 2000, },
   });
 
   const transitions2 = useTransition(activeIndex, {
-    delay: 1000,
+    delay: 500,
     key: activeIndex,
     initial: { opacity: 1 },
     from: { opacity: 0 },
     enter: { opacity: 1 },
     leave: { opacity: 0 },
-    config: { duration: 3000, easing: easings.easeInCubic },
+    config: { duration: 2000 },
   });
 
   useEffect(() => {
     const timer = setInterval(() => {
       setActiveIndex((prevIndex) => (prevIndex + 1) % heroVar1.length);
-    }, 5000);
+    }, 2000);
 
     return () => {
       clearInterval(timer);
