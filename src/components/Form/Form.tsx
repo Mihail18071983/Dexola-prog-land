@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { toast } from "react-toastify";
 import styles from "./Form.module.scss";
 import { SubmitHandler, useForm, Controller } from "react-hook-form";
 import { DevTool } from "@hookform/devtools";
@@ -11,6 +12,10 @@ import { ReactComponent as Arrow } from "../../assets/svg/arrowUp.svg";
 import { Button } from "../../shared/Button/Button";
 
 const defaultPhoneNumber = "+38(0__) ___ __ __";
+
+const showSuccessToast = () => {
+  toast.success("Registration successful!");
+};
 
 type FormData = {
   email: string;
@@ -48,7 +53,7 @@ export const Form = () => {
       });
       return;
     }
-    console.log(data);
+    showSuccessToast();
     reset();
   };
 
@@ -82,10 +87,11 @@ export const Form = () => {
         </label>
 
         <label htmlFor="phoneNumder" className={styles.label}>
-          <div
-            className={styles.formLabelPasswordConteiner}
-          >
-            <Arrow aria-label="country code choosing" className={styles.arrow} />
+          <div className={styles.formLabelPasswordConteiner}>
+            <Arrow
+              aria-label="country code choosing"
+              className={styles.arrow}
+            />
             <Flag aria-label="country flag" className={styles.flagIcon} />
             <Controller
               control={control}
@@ -118,9 +124,7 @@ export const Form = () => {
         </label>
 
         <label className={styles.label} htmlFor="password">
-          <div
-            className={styles.formLabelPasswordConteiner}
-          >
+          <div className={styles.formLabelPasswordConteiner}>
             <div className={styles.asterix}>*</div>
             <input
               id="password"
@@ -131,7 +135,8 @@ export const Form = () => {
               type={showPassword ? "text" : "password"}
               placeholder="Password"
             />
-            <button aria-label="show/hide password"
+            <button
+              aria-label="show/hide password"
               className={styles.showPasswordButton}
               type="button"
               onClick={() => setShowPassword(!showPassword)}
@@ -149,9 +154,7 @@ export const Form = () => {
         </label>
 
         <label className={styles.label} htmlFor="confirmPassword">
-          <div
-            className={styles.formLabelPasswordConteiner}
-          >
+          <div className={styles.formLabelPasswordConteiner}>
             <div className={styles.asterix}>*</div>
             <input
               id="confirmPassword"
@@ -162,7 +165,8 @@ export const Form = () => {
               type={showConfirmPassword ? "text" : "password"}
               placeholder="Confirm Password"
             />
-            <button aria-label="show/hide password"
+            <button
+              aria-label="show/hide password"
               className={styles.showPasswordButton}
               type="button"
               onClick={() => setShowConfirmPassword(!showConfirmPassword)}

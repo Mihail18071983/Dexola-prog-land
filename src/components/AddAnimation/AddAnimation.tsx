@@ -12,11 +12,9 @@ export const AddAnimation = memo(() => {
     to: { transform: "scale(10)", opacity: 0 },
     config: { duration: 5000 },
     onStart: () => {
-      console.log("Animation started");
       setIsAnimating(true);
     },
     onRest: () => {
-      console.log("Animation finished");
       setIsAnimating(false);
     },
   }));
