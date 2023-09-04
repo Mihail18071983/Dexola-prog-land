@@ -10,7 +10,7 @@ export const AddAnimation = memo(() => {
   const [springCircles] = useSpring(() => ({
     from: { transform: "scale(0.1)", opacity: 1 },
     to: { transform: "scale(10)", opacity: 0 },
-    config: { duration: 3000 },
+    config: { duration: 5000 },
     onStart: () => {
       console.log("Animation started");
       setIsAnimating(true);
@@ -26,7 +26,7 @@ export const AddAnimation = memo(() => {
       opacity: 0,
     },
     to: { opacity: 1 },
-    config: { duration: 3000 },
+    config: { duration: 5000 },
   }));
 
   return (
@@ -42,10 +42,15 @@ export const AddAnimation = memo(() => {
               <div className={styles.animatedP2}></div>
             </animated.div>
           )}
-          <animated.h2 style={springText} className={styles.animatedText}>
-            <span>Explore Cyberpunk Space Adventures in</span>
-            <span className={styles.heading}> StarRunner ecosystem</span>
-          </animated.h2>
+          <animated.div
+            style={springText}
+            className={styles.animatedTextWrapper}
+          >
+            <h2 className={styles.animatedText}>
+              <span>Explore Cyberpunk Space Adventures in</span>
+              <span className={styles.heading}> StarRunner ecosystem</span>
+            </h2>
+          </animated.div>
         </div>
       </div>
     </section>
