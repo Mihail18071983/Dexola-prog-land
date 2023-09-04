@@ -27,12 +27,11 @@
   line-height: 1.71;
   letter-spacing: 0.28px;
   transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-  @media screen and (min-width:744px) {
+  @media screen and (min-width: 744px) {
     font-size: 16px;
     line-height: 1.5;
     letter-spacing: 0.32px;
   }
-
 
   &::before {
     content: "";
@@ -46,18 +45,17 @@
   }
 }
 
-  .header_logo {
-    color:var(--white);
-    transition: color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-    &:hover {
-      color: var(--accent-blue);
-    }
-    @media screen and (min-width: 744px) {
-      padding-right: 118px;
-    }
+.header_logo {
+  color: var(--white);
+  transition: color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  &:hover {
+    color: var(--accent-blue);
   }
-
-  .icon {
-    fill: currentColor;
+  @media screen and (min-width: 744px) {
+    padding-right: 118px;
   }
+}
 
+.icon {
+  fill: currentColor;
+}

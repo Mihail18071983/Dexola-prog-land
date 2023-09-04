@@ -1,5 +1,11 @@
 @import "/node_modules/modern-normalize/modern-normalize.css";
 
+@font-face {
+  font-family: 'Swis721 BT', "Swis721 Md BT";
+  src: url(./assets/fonts/Swiss-721-BT-Font.ttf) format("truetype");
+  src: url(./assets/fonts/Swiss721MediumBT.ttf) format("truetype"); 
+}
+
 :root {
   --white: #ffffff;
   --black: #000000;
@@ -54,4 +60,11 @@ th, td, tr {
 img {
   margin: 0;
   padding: 0;
+}
+
+input {
+  background-color: transparent;
+  &:focus {
+    background-color: transparent;
+  }
 }

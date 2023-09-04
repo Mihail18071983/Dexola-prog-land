@@ -5,9 +5,11 @@ import { Header } from "../components/Header/Header";
 import { Hero } from "../components/Hero/Hero";
 import { JoinUs } from "../components/JoinUs/JoinUs";
 import { TopNfts } from "../components/TopNfts/TopNfts";
+import { AddAnimation } from "../components/AddAnimation/AddAnimation";
 import { useWindowSize } from "../hooks/useWindowsSize";
 import { IData } from "../shared/api/heroes";
 import { getAll } from "../shared/api/heroes";
+
 
 export const Main: FC = () => {
   const [heroes, setHeroes] = useState<IData[]>([]);
@@ -52,6 +54,7 @@ export const Main: FC = () => {
     <>
       <Header scrollToJoinUs={scrollToJoinUs} headerRef={headerRef} />
       <main style={{ marginTop: height }}>
+        <AddAnimation/>
         <Hero />
         <Features />
         <TopNfts items={heroes} isShown={isShown} />

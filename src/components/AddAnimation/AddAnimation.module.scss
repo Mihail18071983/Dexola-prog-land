@@ -1,0 +1,136 @@
+.addAnimation {
+  padding-bottom: 0;
+  padding-top: 0;
+  border-bottom: 1px solid var(--accent-blue);
+}
+
+
+.wrapper {
+  position:relative;
+  height: 740px;
+  max-width: 1920px;
+}
+
+.animationWrapper {
+  top:0;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.animatedP1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  height: 60%;
+  border: 2px solid var(--accent-blue);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    width: 75%;
+    height: 75%;
+    border: 2px solid var(--accent-blue);
+    border-radius: 50%;
+  }
+  &::after {
+    content: "";
+    display: block;
+    width: 60%;
+    height: 60%;
+    border: 2px solid var(--accent-blue);
+    border-radius: 50%;
+  }
+}
+
+.animatedP2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30%;
+  height: 30%;
+  border: 2px solid var(--accent-blue);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    width: 100%;
+    height: 70%;
+    border: 2px solid var(--accent-blue);
+    border-radius: 50%;
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    width: 50%;
+    height: 50%;
+    border: 2px solid var(--accent-blue);
+    border-radius: 50%;
+  }
+}
+
+.animatedText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  text-align: center;
+  font-family: Swis721 BT;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.4;
+  text-transform: uppercase;
+  border: 2px solid var(--accent-blue);
+  border-radius: 50%;
+  width: 80%;
+  height: 600px;
+  @media screen and (min-width: 744px) {
+    font-size: 18px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    font-size: 24px;
+  }
+}
+
+.animatedText span {
+  display: block;
+}
+
+.heading {
+  font-family: Swis721 Md BT;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1.25;
+  text-transform: uppercase;
+  @media screen and (min-width: 744px) {
+    font-size: 40px;
+  }
+  @media screen and (min-width: 1440px) {
+    font-size: 64px;
+  }
+}
