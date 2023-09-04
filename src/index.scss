@@ -1,9 +1,9 @@
 @import "/node_modules/modern-normalize/modern-normalize.css";
 
 @font-face {
-  font-family: 'Swis721 BT', "Swis721 Md BT";
+  font-family: "Swis721 BT", "Swis721 Md BT";
   src: url(./assets/fonts/Swiss-721-BT-Font.ttf) format("truetype");
-  src: url(./assets/fonts/Swiss721MediumBT.ttf) format("truetype"); 
+  src: url(./assets/fonts/Swiss721MediumBT.ttf) format("truetype");
 }
 
 :root {
@@ -52,7 +52,9 @@ button {
   cursor: pointer;
 }
 
-th, td, tr {
+th,
+td,
+tr {
   margin: 0;
   padding: 0;
 }
@@ -62,9 +64,3 @@ img {
   padding: 0;
 }
 
-input {
-  background-color: transparent;
-  &:focus {
-    background-color: transparent;
-  }
-}

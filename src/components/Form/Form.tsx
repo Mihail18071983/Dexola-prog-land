@@ -62,7 +62,7 @@ export const Form = () => {
       <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
         <label className={styles.label} htmlFor="email">
           <div
-            className={`${styles.formLabelPasswordConteiner} ${styles.wrapper}`}
+            className={styles.inputWrapper}
           >
             <div className={styles.asterix}>*</div>
             <input
@@ -87,7 +87,7 @@ export const Form = () => {
         </label>
 
         <label htmlFor="phoneNumder" className={styles.label}>
-          <div className={styles.formLabelPasswordConteiner}>
+          <div className={styles.inputWrapper}>
             <Arrow
               aria-label="country code choosing"
               className={styles.arrow}
@@ -124,7 +124,7 @@ export const Form = () => {
         </label>
 
         <label className={styles.label} htmlFor="password">
-          <div className={styles.formLabelPasswordConteiner}>
+          <div className={styles.inputWrapper}>
             <div className={styles.asterix}>*</div>
             <input
               id="password"
@@ -154,7 +154,7 @@ export const Form = () => {
         </label>
 
         <label className={styles.label} htmlFor="confirmPassword">
-          <div className={styles.formLabelPasswordConteiner}>
+          <div className={styles.inputWrapper}>
             <div className={styles.asterix}>*</div>
             <input
               id="confirmPassword"
