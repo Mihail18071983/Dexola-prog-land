@@ -31,6 +31,7 @@ export const Header: FC<HeaderProps> = memo(
             <animated.div style={navSpring} className={styles.nav}>
               <Link
                 to="https://dexola.com"
+                target="_blank"
                 aria-label="logo dx"
                 className={styles.header_logo}
               >

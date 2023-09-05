@@ -16,16 +16,36 @@ export const Footer = ({ isShown }: IProps) => {
     <footer className={styles.footer}>
       <div className={`${containerStyles.container} ${styles.wrapper}`}>
         <div className={styles.socialWrapper}>
-          <Link aria-label="facebook link" className={styles.link} to="#">
+          <Link
+            aria-label="facebook link"
+            target="_blank"
+            className={styles.link}
+            to="#"
+          >
             <Facebook width="32" height="32" className={styles.icon} />
           </Link>
-          <Link aria-label="instagram link" className={styles.link} to="#">
+          <Link
+            aria-label="instagram link"
+            target="_blank"
+            className={styles.link}
+            to="#"
+          >
             <Instagram width="32" height="32" className={styles.icon} />
           </Link>
-          <Link aria-label="discord link" className={styles.link} to="#">
+          <Link
+            aria-label="discord link"
+            target="_blank"
+            className={styles.link}
+            to="#"
+          >
             <Discord width="32" height="32" className={styles.icon} />
           </Link>
-          <Link aria-label="telegram link" className={styles.link} to="#">
+          <Link
+            aria-label="telegram link"
+            target="_blank"
+            className={styles.link}
+            to="#"
+          >
             <Telegram width="32" height="32" className={styles.icon} />
           </Link>
         </div>
