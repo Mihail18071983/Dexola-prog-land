@@ -8,24 +8,35 @@ import { Button } from "../../shared/Button/Button";
 interface HeaderProps {
   headerRef: MutableRefObject<HTMLElement | null>;
   scrollToJoinUs: () => void;
+  isAnimating: boolean;
 }
 
-export const Header: FC<HeaderProps> = ({ headerRef, scrollToJoinUs }) => {
+export const Header: FC<HeaderProps> = ({
+  headerRef,
+  scrollToJoinUs,
+  isAnimating,
+}) => {
   return (
     <header ref={headerRef} className={styles.header}>
       <div className={containerStyles.container}>
-        <div className={styles.nav}>
-          <Link to="https://dexola.com" aria-label="logo dx" className={styles.header_logo}>
-            <Logo width="35" height="20" className={styles.icon} />
-          </Link>
-          <Button
-            type="button"
-            className={styles.link}
-            onClick={scrollToJoinUs}
-          >
-            Join Now
-          </Button>
-        </div>
+        {!isAnimating && (
+          <div className={styles.nav}>
+            <Link
+              to="https://dexola.com"
+              aria-label="logo dx"
+              className={styles.header_logo}
+            >
+              <Logo width="35" height="20" className={styles.icon} />
+            </Link>
+            <Button
+              type="button"
+              className={styles.link}
+              onClick={scrollToJoinUs}
+            >
+              Join Now
+            </Button>
+          </div>
+        )}
       </div>
     </header>
   );

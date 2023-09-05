@@ -1,24 +1,20 @@
-import React, { memo, useState } from "react";
+import React, { memo } from "react";
 import styles from "./AddAnimation.module.scss";
 import containerStyles from "../../Container.module.scss";
 
-import { animated, useSpring } from "@react-spring/web";
+import { animated, useSpring, SpringValues } from "@react-spring/web";
 
-export const AddAnimation = memo(() => {
-  const [isAnimating, setIsAnimating] = useState(false);
+type MySpringValues = SpringValues<{
+  opacity: number
+  transform: string
+}>
 
-  const [springCircles] = useSpring(() => ({
-    from: { transform: "scale(0.1)", opacity: 1 },
-    to: { transform: "scale(10)", opacity: 0 },
-    config: { duration: 5000 },
-    onStart: () => {
-      setIsAnimating(true);
-    },
-    onRest: () => {
-      setIsAnimating(false);
-    },
-  }));
+interface IProps {
+  springValue: MySpringValues;
+  isAnimating: boolean;
+}
 
+export const AddAnimation = memo(({springValue, isAnimating }:IProps) => {
   const [springText] = useSpring(() => ({
     from: {
       opacity: 0,
@@ -33,7 +29,7 @@ export const AddAnimation = memo(() => {
         <div className={styles.wrapper}>
           {isAnimating && (
             <animated.div
-              style={springCircles}
+              style={springValue}
               className={styles.animationWrapper}
             >
               <div className={styles.animatedP1}></div>

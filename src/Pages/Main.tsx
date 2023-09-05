@@ -1,4 +1,6 @@
 import React, { FC, useEffect, useRef, useState, useCallback } from "react";
+import { useSpring } from "@react-spring/web";
+
 import { Features } from "../components/Features/Features";
 import { Footer } from "../components/Footer/Footer";
 import { Header } from "../components/Header/Header";
@@ -10,7 +12,6 @@ import { useWindowSize } from "../hooks/useWindowsSize";
 import { IData } from "../shared/api/heroes";
 import { getAll } from "../shared/api/heroes";
 
-
 export const Main: FC = () => {
   const [heroes, setHeroes] = useState<IData[]>([]);
   const headerRef = useRef<HTMLElement | null>(null);
@@ -19,6 +20,7 @@ export const Main: FC = () => {
   const [height, setHeight] = useState<number>(0);
   const [isShown, setIsShown] = useState(false);
   const [isFooterShown, setIsFooterShown] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
 
   useEffect(() => {
     if (headerRef.current) {
@@ -30,6 +32,18 @@ export const Main: FC = () => {
       ? setIsFooterShown(false)
       : setIsFooterShown(true);
   }, [width]);
+
+  const [springCircles] = useSpring(() => ({
+    from: { transform: "scale(0.1)", opacity: 1 },
+    to: { transform: "scale(10)", opacity: 0 },
+    config: { duration: 5000 },
+    onStart: () => {
+      setIsAnimating(true);
+    },
+    onRest: () => {
+      setIsAnimating(false);
+    },
+  }));
 
   const scrollToJoinUs = () => {
     if (joinUsRef.current) {
@@ -52,9 +66,9 @@ export const Main: FC = () => {
 
   return (
     <>
-      <Header scrollToJoinUs={scrollToJoinUs} headerRef={headerRef} />
+      <Header isAnimating={isAnimating} scrollToJoinUs={scrollToJoinUs} headerRef={headerRef} />
       <main style={{ marginTop: height }}>
-        <AddAnimation/>
+        <AddAnimation springValue={springCircles} isAnimating={isAnimating} />
         <Hero />
         <Features />
         <TopNfts items={heroes} isShown={isShown} />
