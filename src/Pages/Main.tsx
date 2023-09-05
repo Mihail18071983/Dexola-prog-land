@@ -66,10 +66,14 @@ export const Main: FC = () => {
 
   return (
     <>
-      <Header isAnimating={isAnimating} scrollToJoinUs={scrollToJoinUs} headerRef={headerRef} />
+      <Header
+        isAnimating={isAnimating}
+        scrollToJoinUs={scrollToJoinUs}
+        headerRef={headerRef}
+      />
       <main style={{ marginTop: height }}>
-        <AddAnimation springValue={springCircles} isAnimating={isAnimating} />
         <Hero />
+        <AddAnimation springValue={springCircles} isAnimating={isAnimating} />
         <Features />
         <TopNfts items={heroes} isShown={isShown} />
         <JoinUs joinUsRef={joinUsRef} />
