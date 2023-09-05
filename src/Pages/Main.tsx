@@ -36,7 +36,7 @@ export const Main: FC = () => {
   const [springCircles] = useSpring(() => ({
     from: { transform: "scale(0.1)", opacity: 1 },
     to: { transform: "scale(10)", opacity: 0 },
-    config: { duration: 5000 },
+    config: { duration: 2000 },
     onStart: () => {
       setIsAnimating(true);
     },

@@ -17,7 +17,7 @@ interface HeaderProps {
 export const Header: FC<HeaderProps> = memo(
   ({ headerRef, scrollToJoinUs, isAnimating }) => {
     const navSpring = useSpring({
-      delay: 5000,
+      delay: 2000,
       from: {
         opacity: 0,
       },

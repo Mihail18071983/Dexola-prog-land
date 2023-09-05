@@ -21,7 +21,7 @@ export const AddAnimation = memo(({springValue, isAnimating }:IProps) => {
       opacity: 0,
     },
     to: { opacity: 1 },
-    config: { duration: 5000 },
+    config: { duration: 2000 },
   }));
 
   return (
