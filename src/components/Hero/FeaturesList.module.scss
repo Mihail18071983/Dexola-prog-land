@@ -31,7 +31,7 @@
   min-width:329px;
   min-height: 232px;
   margin-bottom: 16px;
-  aspect-ratio: attr(min-width) / attr(min-height);
+  aspect-ratio: auto;
   @media screen and (min-width:744px){
     min-width: 221px;
     min-height: 240px;
