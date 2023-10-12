@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import {useNavigate} from "react-router-dom"
 import { toast } from "react-toastify";
 import styles from "./Form.module.scss";
 import { SubmitHandler, useForm, Controller } from "react-hook-form";
@@ -32,7 +31,7 @@ export const Form = () => {
     control,
     reset,
     setError,
-    formState: { isSubmitting, errors, isSubmitted},
+    formState: { isSubmitting, errors },
   } = useForm({
     defaultValues: {
       email: "",
@@ -45,13 +44,12 @@ export const Form = () => {
 
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const navigate = useNavigate();
 
-    const handleNavigate = () => {
-    if (isSubmitted) {
-    navigate("https://dexola-dapp.vercel.app", {replace:true})
-  }
-}
+
+  const handleNavigate = () => {
+    console.log("redirecting to");
+    window.location.href="https://dexola-dapp.vercel.app";
+  };
 
   const onSubmit: SubmitHandler<FormData> = (data) => {
     if (data.password !== data.confirmPassword) {
@@ -61,8 +59,8 @@ export const Form = () => {
       });
       return;
     }
-    showSuccessToast();
     handleNavigate();
+    showSuccessToast();
     reset();
   };
 
@@ -70,9 +68,7 @@ export const Form = () => {
     <>
       <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
         <label className={styles.label} htmlFor="email">
-          <div
-            className={styles.inputWrapper}
-          >
+          <div className={styles.inputWrapper}>
             <div className={styles.asterix}>*</div>
             <input
               id="email"
