@@ -64,3 +64,11 @@ img {
   padding: 0;
 }
 
+.up-btn {
+  border-radius: 50% !important;
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+  &:hover {
+    background-color: #eb3795;
+    color: (var(--white));
+  }
+}
