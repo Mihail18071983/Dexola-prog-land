@@ -13,6 +13,7 @@
 
 .item {
   overflow: hidden;
+  border: 1px solid var(--accent-blue);
   @media screen and (min-width: 744px) {
     flex-basis: calc((100% - 16px) / 3);
   }

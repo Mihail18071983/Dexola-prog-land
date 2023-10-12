@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {useNavigate} from "react-router-dom"
 import { toast } from "react-toastify";
 import styles from "./Form.module.scss";
 import { SubmitHandler, useForm, Controller } from "react-hook-form";
@@ -31,7 +32,7 @@ export const Form = () => {
     control,
     reset,
     setError,
-    formState: { isSubmitting, errors },
+    formState: { isSubmitting, errors, isSubmitted},
   } = useForm({
     defaultValues: {
       email: "",
@@ -44,6 +45,13 @@ export const Form = () => {
 
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const navigate = useNavigate();
+
+    const handleNavigate = () => {
+    if (isSubmitted) {
+    navigate("https://dexola-dapp.vercel.app", {replace:true})
+  }
+}
 
   const onSubmit: SubmitHandler<FormData> = (data) => {
     if (data.password !== data.confirmPassword) {
@@ -54,6 +62,7 @@ export const Form = () => {
       return;
     }
     showSuccessToast();
+    handleNavigate();
     reset();
   };
 
