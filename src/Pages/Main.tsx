@@ -1,6 +1,5 @@
 import React, { FC, useEffect, useRef, useState, useCallback } from "react";
 import { useSpring } from "@react-spring/web";
-
 import { Features } from "../components/Features/Features";
 import { Footer } from "../components/Footer/Footer";
 import { Header } from "../components/Header/Header";
@@ -21,6 +20,7 @@ export const Main: FC = () => {
   const [isShown, setIsShown] = useState(false);
   const [isFooterShown, setIsFooterShown] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
+ 
 
   useEffect(() => {
     if (headerRef.current) {
@@ -75,8 +75,13 @@ export const Main: FC = () => {
         <Hero />
         <AddAnimation springValue={springCircles} isAnimating={isAnimating} />
         <Features />
-        <TopNfts items={heroes} isShown={isShown} />
-        <JoinUs joinUsRef={joinUsRef} />
+        <TopNfts
+          items={heroes}
+          isShown={isShown}
+        />
+        <JoinUs
+          joinUsRef={joinUsRef}
+        />
       </main>
       <Footer isShown={isFooterShown} />
     </>

@@ -4,9 +4,15 @@
   @media screen and (min-width: 744px) {
     margin-bottom: 76px;
   }
-@media screen and (min-width:1440px) {
-  margin-bottom: 125px;
+  @media screen and (min-width: 1440px) {
+    margin-bottom: 125px;
+  }
 }
+
+.add_wrapper {
+  margin: 0 auto;
+  min-width: 375px;
+  max-width: 1920px; 
 }
 
 .wrapper {
@@ -26,7 +32,6 @@
     margin-bottom: 16px;
   }
 }
-
 
 .arrow {
   @media screen and (max-width: 1439px) {

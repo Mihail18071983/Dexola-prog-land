@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, memo } from "react";
 import { animated, useTransition} from "@react-spring/web";
 import styles from "./Hero.module.scss";
 import { MainTitle } from "./MainTitle";
@@ -6,7 +6,7 @@ import { heroVar1, heroVar2 } from "../../imageHeroes";
 import containerStyles from "../../Container.module.scss";
 
 
-export const Hero = () => {
+export const Hero = memo(() => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const transitions1 = useTransition(activeIndex, {
@@ -97,4 +97,4 @@ export const Hero = () => {
       </section>
     </>
   );
-};
+});
