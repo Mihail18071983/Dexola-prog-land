@@ -120,7 +120,7 @@
 .btn {
   width: 100%;
   @media screen and (min-width: 744px) {
-    width: 235px;
+    width: fit-content;
     margin-left: 0;
     margin-right: auto;
   }

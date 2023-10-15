@@ -203,7 +203,7 @@ export const Form = () => {
               colors={["#e15b64", "#f47e60", "#f8b26a", "#abbd81", "#849b87"]}
             />
           ) : (
-            <span className={styles.btnContent}>Send it</span>
+            <span className={styles.btnContent}>Go to the DAPP</span>
           )}
         </Button>
       </form>

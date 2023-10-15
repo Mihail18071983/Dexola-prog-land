@@ -7,6 +7,8 @@ Simple one page landing which contains animations, tables and form registration.
 
 For launching application  you just need moving to the https://dexola-proj-land.vercel.app/
 
+# For moving to the DAPP you need to fill form registration and click "GO TO THE DAPP" button after then.
+
 
 ## Features
 
